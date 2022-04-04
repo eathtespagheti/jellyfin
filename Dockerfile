@@ -9,3 +9,6 @@ RUN apt-get install --only-upgrade -y intel-media-va-driver-non-free
 RUN apt-get remove gpg-agent wget -y
 RUN apt-get upgrade -y
 RUN apt-get clean -y
+RUN apt-get install -y ffmpeg
+RUN mv /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/lib/jellyfin-ffmpeg/ffmpeg.bak
+RUN ln -f /usr/bin/ffmpeg /usr/lib/jellyfin-ffmpeg/ffmpeg
